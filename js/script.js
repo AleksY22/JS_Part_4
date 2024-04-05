@@ -99,7 +99,7 @@ fetch('https://jsonplaceholder.typicode.com/todos/1')
    .then(response => response.json())
    .then(json => console.log(json));
 */
-
+/*
 fetch('https://jsonplaceholder.typicode.com/posts', {
    method: 'POST',
    body: JSON.stringify({ name: 'Aleks' }),
@@ -109,3 +109,46 @@ fetch('https://jsonplaceholder.typicode.com/posts', {
 })
    .then(response => response.json())
    .then(json => console.log(json));
+*/
+/*
+//============Методы перебора массивов======================
+//filter
+const names = ['Ivan', 'Ann', 'Ksenia', 'Voldemart'];
+const shortNames = names.filter((name) => {
+   return name.length < 5;
+});
+console.log(shortNames);
+
+//map
+const answers = ['IvAn', 'AnnA', 'helLo'];
+const result = answers.map(item => item.toLowerCase());
+console.log(result);
+
+// some, every
+const arr = [4, 'qwq', 'sfres'];
+console.log(arr.some(item => typeof (item) === 'number'));
+console.log(arr.every(item => typeof (item) === 'number'));
+
+// reduce
+const arrNumber = [4, 5, 1, 3, 2, 6];
+const sumArr = arrNumber.reduce((sum, current) => sum + current);
+const sumArr2 = arrNumber.reduce((sum, current) => sum + current, 3);
+console.log(sumArr);
+console.log(sumArr2);
+
+const arrStr = ['apple', 'pear', 'plum'];
+const sumArrStr = arrStr.reduce((sum, current) => `${sum}, ${current}`);
+console.log(sumArrStr);
+
+const obj = {
+   ivan: 'persone',
+   ann: 'persone',
+   dog: 'animal',
+   cat: 'animal'
+};
+
+const newArr = Object.entries(obj)
+   .filter(item => item[1] === 'persone')
+   .map(item => item[0]);
+console.log(newArr);
+*/
