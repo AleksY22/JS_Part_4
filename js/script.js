@@ -238,3 +238,49 @@ const getTotalIncomeAmount = (data) => {
 };
 console.log(getTotalIncomeAmount(funds));
 */
+
+/*
+//==================Local Storage===================
+//localStorage.setItem('number', 5); //запись значения
+//localStorage.getItem('number'); //получить значение
+//localStorage.removeItem('number'); //удаление значения
+//localStorage.clear(); //очистка хранилища
+
+const checkbox = document.querySelector('#checkbox');
+const form = document.querySelector('form');
+const change = document.querySelector('#color');
+
+if (localStorage.getItem('isChecked')) {
+   checkbox.checked = 'true';
+}
+
+if (localStorage.getItem('bg') === 'changed') {
+   form.style.backgroundColor = 'red';
+}
+
+checkbox.addEventListener('change', () => {
+   localStorage.setItem('isChecked', true);
+});
+
+change.addEventListener('click', () => {
+   if (localStorage.getItem('bg') === 'changed') {
+      localStorage.removeItem('bg');
+      form.style.backgroundColor = '#fff';
+   } else {
+      localStorage.setItem('bg', 'changed');
+      form.style.backgroundColor = 'red';
+   }
+});
+
+const persone = {
+   name: 'Aleks',
+   age: 25
+}
+
+const dataPerson = JSON.stringify(persone);
+localStorage.setItem('persons', dataPerson);
+
+console.log(JSON.parse(localStorage.getItem('persons')));
+*/
+
+
