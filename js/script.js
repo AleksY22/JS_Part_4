@@ -284,3 +284,33 @@ console.log(JSON.parse(localStorage.getItem('persons')));
 */
 
 
+//==================Регулярные выражения=================
+//Варианты создания:
+// 1. new RegExp('pattern', 'flags') - используется редко
+// 2. /pattern/flags
+
+// flag:
+// i - не зависит от регистра
+// g - несколько вхождений (зависит от метода)
+// m - многострояный режим
+// флаги можно комбинировать (/n/igm)
+
+// классы (обратные классы) символов:
+// \d - цифры (\D - не цифры)
+// \w - буквы (\W - не буквы)
+// \s - пробелы (\S - не пробелы)
+
+
+const ans = 'ajnjspdmlksmcn';
+const reg1 = /n/;
+console.log(ans.search(reg1));
+
+const reg2 = /n/g;
+console.log(ans.match(reg2));
+
+const pass = 'uwieOInsai';
+console.log(pass.replace(/./g, '*'));
+
+const myStr = 'My name is R2D2';
+console.log(myStr.match(/\w\d\w\d/i));
+console.log(myStr.match(/\S/g));
