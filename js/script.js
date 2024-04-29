@@ -283,7 +283,7 @@ localStorage.setItem('persons', dataPerson);
 console.log(JSON.parse(localStorage.getItem('persons')));
 */
 
-
+/*
 //==================Регулярные выражения=================
 //Варианты создания:
 // 1. new RegExp('pattern', 'flags') - используется редко
@@ -314,3 +314,4 @@ console.log(pass.replace(/./g, '*'));
 const myStr = 'My name is R2D2';
 console.log(myStr.match(/\w\d\w\d/i));
 console.log(myStr.match(/\S/g));
+*/
