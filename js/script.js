@@ -315,3 +315,110 @@ const myStr = 'My name is R2D2';
 console.log(myStr.match(/\w\d\w\d/i));
 console.log(myStr.match(/\S/g));
 */
+/*
+//====================TEST========================
+//==================1===================
+const promise = new Promise((resolve, reject) => {
+   setTimeout(() => {
+      resolve('foo');
+   }, 300);
+});
+
+promise.then((value) => {
+   console.log(value); //foo
+});
+
+//====================2===================
+const p1 = new Promise((resolve, reject) => {
+   setTimeout(resolve, 1000, "one");
+});
+const p2 = new Promise((resolve, reject) => {
+   setTimeout(resolve, 2000, "two");
+});
+const p3 = new Promise((resolve, reject) => {
+   setTimeout(resolve, 3000, "three");
+});
+const p4 = new Promise((resolve, reject) => {
+   setTimeout(resolve, 4000, "four");
+});
+const p5 = new Promise((resolve, reject) => {
+   reject("reject");
+});
+
+Promise.all([p1, p2, p3, p4, p5]).then(value => {
+   console.log(value);
+}, reason => {
+   console.log(reason); //reject
+});
+
+//==================3==================
+const arr = [
+   {
+      name: 'Alex',
+      salary: 500
+   },
+   {
+      name: 'Ann',
+      salary: 1500
+   },
+   {
+      name: 'John',
+      salary: 2500
+   },
+];
+
+const result = arr.map(item => Object.entries(item)[1][1]).reduce((sum, curr) => sum + curr)
+console.log(result); //4500
+
+//================4===================
+const promisify = (item, delay) =>
+   new Promise(resolve => setTimeout(() => resolve(item), delay));
+
+const a = () => promisify('a', 100);
+const b = () => promisify('b', 5000);
+const c = () => promisify('c', 3000);
+
+function one() {
+   const promises = [a(), b(), c()];
+   Promise.all(promises).then(values => console.log(values))
+}
+
+one(); //[ 'a', 'b', 'c' ]
+
+//======================5=====================
+const promisify2 = (item, delay) =>
+   new Promise(resolve => setTimeout(() => resolve(item), delay));
+
+const a2 = () => promisify2('a', 100);
+const b2 = () => promisify2('b', 5000);
+const c2 = () => promisify2('c', 3000);
+
+async function two() {
+   const promises = [a2(), b2(), c2()];
+   const outpu1 = await Promise.race(promises);
+   return `two is done: ${outpu1}`;
+}
+
+two().then(console.log); //two is done: a
+
+// Это тоже самое, что и .then(data => console.log(data));
+// data передается в команду автоматически, и она запускается сама с этими данными
+
+//======================6====================
+const promisify3 = (item, delay) =>
+   new Promise(resolve => setTimeout(() => resolve(item), delay));
+
+const a3 = () => promisify3('a', 100);
+const b3 = () => promisify3('b', 5000);
+const c3 = () => promisify3('c', 3000);
+
+async function three() {
+   const outpu1 = await a3();
+   const outpu2 = await b3();
+   const outpu3 = await c3();
+   return `three is done: ${outpu1} ${outpu2} ${outpu3}`
+}
+
+three().then(console.log); //three is done: a b c
+*/
+
