@@ -421,4 +421,68 @@ async function three() {
 
 three().then(console.log); //three is done: a b c
 */
+/*
+//=====================Геттеры и сеттеры===================
+const person = {
+   name: 'Aleks',
+   age: 25,
 
+   get userAge() {
+      return this.age;
+   },
+
+   set userAge(num) {
+      this.age = num;
+   }
+}
+console.log(person.userAge);
+person.userAge = 30;
+console.log(person.age);
+console.log(person.userAge);
+*/
+/*
+//=======================Инкапсуляция=====================
+function User(name, age) {
+   this.name = name;
+   this.age = age;
+
+   this.say = function () {
+      console.log(`Имя пользователя: ${this.name}, возраст ${this.age}`);
+   }
+}
+
+const ivan = new User('Ivan', 27);
+console.log(ivan.name);
+console.log(ivan.age);
+ivan.age = 30; //изменение свойства
+
+class UserData {
+   constructor(name, age) {
+      this.name = name;
+      this._age = age;
+   }
+
+   #surname = 'Ivanov'; //недоступно из вне
+
+   say = () => {
+      console.log(`Имя пользователя: ${this.name} ${this.#surname}, возраст ${this._age}`);
+   }
+
+   get age() {
+      return this._age;
+   }
+
+   set age(age) {
+      if (typeof age === 'number' && age > 0 && age < 110) {
+         this._age = age;
+      } else {
+         console.log('error data');
+      }
+   }
+}
+
+const alex = new UserData('Alex', 35);
+console.log(alex.age);
+alex.say();
+console.log(alex.surname);
+*/
