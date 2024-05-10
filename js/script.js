@@ -486,3 +486,49 @@ console.log(alex.age);
 alex.say();
 console.log(alex.surname);
 */
+/*
+//====================Ошибки==========================
+try {
+   console.log('Ok');
+   console.log(a);
+   console.log('result');
+} catch (error) {
+   console.log(error);
+   console.log(error.name);
+   console.log(error.message);
+   console.log(error.stack);
+} finally {
+   console.log('finally');
+}
+
+console.log('next');
+
+const myData = [
+   {
+      id: 'circle',
+      tag: 'span'
+   },
+   {
+      id: '',
+      tag: 'div'
+   },
+   {
+      id: 'name',
+      tag: 'div'
+   }
+]
+
+try {
+   myData.forEach((blockObj, i) => {
+      const block = document.createElement(blockObj.tag);
+      if (!blockObj.id) throw new SyntaxError(`В данных под номером ${i + 1} нет id`);
+      block.setAttribute('id', blockObj.id);
+      document.body.append(block);
+   })
+} catch (e) {
+   if (e.name === 'SyntaxError') {
+      console.log(e.message);
+   } else throw e;
+
+}
+*/
