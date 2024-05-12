@@ -564,3 +564,25 @@ for (let k of count(5)) {
    console.log(k); //0 1 2 3 4
 }
 */
+/*
+//=======================requestAnimationFrame========================
+let pos = 0;
+const btn = 
+const elem = 
+
+
+function myAnimation() {
+   pos++;
+   elem.style.top = pos + 'px';
+   elem.style.left = pos + 'px';
+
+   if (pos < 300) {
+      requestAnimationFrame(myAnimation);
+   }
+}
+
+btn.addEventListener('click', () => requestAnimationFrame(myAnimation));
+
+let id = requestAnimationFrame(myAnimation);
+cancelAnimationFrame(id);
+*/
