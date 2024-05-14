@@ -567,8 +567,8 @@ for (let k of count(5)) {
 /*
 //=======================requestAnimationFrame========================
 let pos = 0;
-const btn = 
-const elem = 
+const btn =
+const elem =
 
 
 function myAnimation() {
@@ -585,4 +585,143 @@ btn.addEventListener('click', () => requestAnimationFrame(myAnimation));
 
 let id = requestAnimationFrame(myAnimation);
 cancelAnimationFrame(id);
+*/
+/*
+//==================Композиция функций=========================
+const multiply20 = (price) => price * 20;
+const divide100 = (price) => price / 100;
+const normalizePrice = (price) => price.toFixed(2);
+
+const compose = (...fns) => {
+   return (x) => fns.reduce((acc, fn) => fn(acc), x);
+};
+
+const withCompose = compose(multiply20, divide100, normalizePrice);
+console.log(withCompose(200));
+*/
+
+//===================Контрольный тест==========================
+//===================== 1 =====================
+/*
+const promisify = (item, delay) =>
+   new Promise(resolve => setTimeout(() => resolve(item), delay));
+
+const a = () => promisify('a', 1000);
+const b = () => promisify('b', 5000);
+const c = () => promisify('c', 3000);
+
+async function one() {
+   const promises = [a(), b(), c()];
+   const [outpu1, outpu2, outpu3] = await Promise.all(promises);
+   return `one is done: ${outpu1} ${outpu2} ${outpu3}`;
+}
+console.log(1);
+async function two() {
+   const promises = [a(), b(), c()];
+   const outpu1 = await Promise.race(promises);
+   return `two is done: ${outpu1}`;
+}
+
+async function three() {
+   const outpu1 = await a();
+   const outpu2 = await b();
+   const outpu3 = await c();
+   return `three is done: ${outpu1} ${outpu2} ${outpu3}`
+}
+
+one().then(console.log);
+two().then(console.log);
+three().then(console.log);
+*/
+
+//====================== 2 ==========================
+/*
+function setOptions(height, width, ...additional) {
+   console.log(height, width, ...additional)
+}
+setOptions(400, 500, 'red', 'top');
+*/
+
+//======================= 3 ========================
+/*
+const msg = 'My number +12345678, name: Oleg';
+function transformMsg(str) {
+   // Пропущенная часть
+   let a = str.replace(/\+\d{8}/, '*****');
+   let b = a.replace(/\w{4}:\s\w{1,}/, 'hidden');
+   return b;
+}
+console.log(transformMsg(msg));
+*/
+
+//======================= 4 =========================
+/*
+let num = 4;
+function addX(x) {
+   return function (n) {
+      return n + x
+   }
+}
+const addThree = addX(3);
+let res = addThree(num);
+console.log(res);
+*/
+
+//====================== 5 ===========================
+/*
+const promise = new Promise((resolve, reject) => {
+   setTimeout(() => {
+      resolve('foo');
+   }, 1000);
+   setTimeout(() => {
+      reject('bar');
+   }, 900);
+});
+
+promise.then((value) => {
+   console.log(value);
+}).catch((e) => console.log(e));
+*/
+
+//====================== 6 ============================
+/*
+const arr = [
+   {
+       name: 'Alex',
+       salary: 500
+   },
+   {
+       name: 'Ann',
+       salary: 1500
+   },
+   {
+       name: 'John',
+       salary: 2500
+   },
+];
+
+const result = arr.map(item => Object.entries(item)[1][1]).reduce((sum, curr) => sum + curr);
+console.log(result);
+*/
+
+//============================= 7 ==================================
+/*
+async function makeRequest() {
+   return await fetch('https://jsonplaceholder.typicode.com/todos/1')
+      .then(response => response.json())
+      .then(json => console.log(json))
+}
+makeRequest();
+*/
+
+//============================= 8 ==================================
+/*
+function foo(a,b) {
+   const [first, second] = a;
+   const {eng, ru} = b;
+
+   return `${second}, ${ru}`;
+}
+
+const result2 = foo(['Hello', 'Привет'], {ru: 'Мир', eng: 'World'});
 */
